@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Sample Page </title>
+    <title style="text-align:center;"> QuestionsAnswers </title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1> Sample Heading</h1>
-    <p> Add changes to the paragraph to check if we can push without token requirement. </p>
+    <div>
+      <h1 > Enter questions and submit queries </h1>
+      <form  action="/url" method="GET">
+        <h2 >Please enter your queries below!</h2>
+        <br>
+        <input  type="text" name="query" id="query" minlength="3" maxlength="50" required>
+        <button type="button" id = "btn1">Submit</button>
+        <button type="button" id = "btn2">Show all Questions!</button>
+    </form>
+    </div>
+    <p id="demo">  </p>
+    </div>
+    <script src="index.js"></script>
   </body>
 </html>
