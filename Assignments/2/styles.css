@@ -1,0 +1,32 @@
+body {
+  background-color: powderblue;
+}
+h1 {
+  color: black;
+  font-family: verdana;
+  font-size: 300%;
+  text-align:center;
+}
+p {
+  color: black;
+  font-family: courier;
+  font-size: 160%;
+}
+
+#btn2, #btn1 {
+color:red;
+    font-size: 12pt;
+    height: 32px;
+    width : 200px;
+}
+div {
+  padding: 25px;
+  box-sizing: border-box;
+  margin: 20px;
+  text-align:center;
+}
+#query {
+    font-size: 18pt;
+    height: 32px;
+    width : 400px;
+}

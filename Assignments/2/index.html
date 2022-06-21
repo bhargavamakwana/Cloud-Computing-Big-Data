@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title style="text-align:center;"> QuestionsAnswers </title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div>
+      <h1 > Enter questions and submit queries </h1>
+      <form  action="/url" method="GET">
+        <h2 >Please enter your queries below!</h2>
+        <br>
+        <input  type="text" name="query" id="query" minlength="3" maxlength="50" required>
+        <button type="button" id = "btn1">Submit</button>
+        <button type="button" id = "btn2">Show all Questions!</button>
+    </form>
+    </div>
+    <p id="demo">  </p>
+    </div>
+    <!--<script src="index.js"></script>-->
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1159.0.min.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+  <script type="text/javascript">
+
+var apigClient = apigClientFactory.newClient();
+
+const btn1 = document.getElementById('btn1');
+const btn2 = document.getElementById('btn2');
+btn2.addEventListener('click',
+  function showQuestions(event) {
+    event.preventDefault();
+    apigClient.questionsPost().then(function(result){
+      console.log(result.data.body);
+    document.getElementById("demo").innerHTML = result.data.body;
+    });
+  })
+btn1.addEventListener('click',
+  function getQuestions(event) {
+    event.preventDefault();
+    const query = document.getElementById('query');
+    apigClient.answersGet({'q': query}).then(function(result){
+      console.log(result.data.body);
+    document.getElementById("demo").innerHTML = result.data.body;
+    });
+  })
+  </script>
+  </body>
+</html>
